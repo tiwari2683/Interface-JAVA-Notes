@@ -1,0 +1,97 @@
+                           ||  Notes of Interface ||
+          ====================================================
+          Interface- SRS (service requirement specification), GUI, technical definition.
+
+
+     Q1) What to do when declaring an interface?
+Ans:
+ 1) Whenever we are implementing an interface compulsorily for every method of that
+ interface  we should provide implementation otherwise we have to declare a class in that
+ case child class is responsible to provide implementation for remaining methods.
+
+ 2) Whenever we are implementing an interface method compulsorily it should be declared public
+ otherwise it would result in compile time error.
+
+=================================================
+
+      Q2) Can a class extend as well as can implement an interface simultaneously  ?
+Ans:
+ Yes , it is possible. in this sequence it should do it.
+ 1) reusability (extends)
+ 2) implementation(interface implements)
+
+ class A extends B ,implements C{}    //only this is valid for extending and implementing at a same time.
+
+ X implements Y extends z  //not valid at all.
+==================================================
+
+      Q3) Can 1 interface extends other interfaces or implements them?
+Ans:
+Surely can't implement but obviously extend to other interfaces.
+interface A extends B, C  (B & C both are interface)
+
+==================================================
+
+     Q4) Why to make any method public and abstract in the interface ?
+
+Ans: Public=> to make the method available for every implementation class
+     Abstract => Implementation class is responsible for providing the implementation
+    ----------------------------------------------------
+   -----------------------------------------------------
+
+
+
+
+                       |   Marker Interfaces   |
+                   ===================================
+       For this JVM gives the functionality we do not give any absract method or any variable in the body of interface.
+
+     Interface can exist without any variable and abstract methods.
+             ex- (Serializable, Runnable, Cloneable)
+
+          Q)  what will its use?
+           => a class will implememnt it and class object can be created and that object can be used for serialization.
+           JVM automatically provides some functionality we don't need to provide any methods or something.
+           ex-1) by implememnting Serializable Interface we can send that obj across the network and we can save the state
+                 of an object into the file
+
+          ex-2) by implementing SingleThreadModel interface servlets can process only one client request at a time so that
+                 we can get " Thread Safety "
+
+         ex-3) by implementing Cloneable interface our object is in a position to provide exactly duplicate cloned object.
+
+==================================================
+
+Note: Methods inside interface can't be made :
+       Static , private ,protected , strictfp, synchronized ,native , final
+
+       Static= need implementation always which is opposite the use casee of the interface.
+       --------------------------------------------------------------------------------
+      | Static + final  => always need to be initialized otherwise compile time error. |
+       --------------------------------------------------------------------------------
+==================================================
+
+
+                              Intresting but tricky:
+                          ------------------------------
+
+interface A
+ {
+   int a=10;   //by default static final so cant be overridden
+ }
+class B implements A
+ {
+    public void hello()
+  {
+    a=20;   //overriding so compile time error
+    int a =20;  // will work as a local variable is created instead of overriding
+  }
+}
+
+==================================================
+Q6) Can a java class implements 2 interfaces simultaneously?
+ANs: Yes possible , Except both the interfaces methods signature be same but different return types.
+
+=================================================
+
+Q7)

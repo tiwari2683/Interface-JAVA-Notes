@@ -1,0 +1,23 @@
+                          Wrapper Class
+                    =========================
+
+ 1) To wrap primitives into the object form so that we can handle primitives also just like objects.
+ 2) To define several utility functions which are required for the primitives
+ 3) they are also immutable just like the string class.
+
+
+                              object      <=   (toString method -> return the hashcode value of obj)
+                                |                (equals() =>  compare the reference of the objects
+                                |
+       --------------------------------------- - ----------------------------------------------
+       |         |                   |                                      |                   |
+       String   StringBuilder        |                                      Character           Boolean
+                              Number (parent of all wrapper classes)
+                                |
+                 ---------------------------------------
+                 |        |       |          |         |
+               Byte     Short  Integer     Long     Float
+
+
+      For all wrapper class  =  (toString() => overridden to print the data present in the object.)
+                                (equals() => overridden to compare the content present in the object.
